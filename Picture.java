@@ -16,6 +16,7 @@ public class Picture
     private Triangle roof;
     private Circle sun;
     private Square campo;
+    private Person person;
     
 
     /**
@@ -108,6 +109,21 @@ public class Picture
             roof.changeColor("black");
             sun.changeColor("black");
             campo.changeColor("black");
+        }
+    }
+    
+    /**
+     * Change this picture to use color display
+     */
+    public void movePerson()
+    {
+        if (wall != null)   // only if it's painted already...
+        {
+            person = new Person();
+            person.moveHorizontal(-280);
+            person.moveVertical(23);
+            person.makeVisible();
+            person.slowMoveHorizontal(150);
         }
     }
 }
