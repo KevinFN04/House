@@ -100,7 +100,7 @@ public class Picture
      */
     public void moveSun()
     {
-        if (wall != null)   // only if it's painted already...
+        if (sun != null)   // only if it's painted already...
         {
             sun.slowMoveVertical(124);
         }
