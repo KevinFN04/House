@@ -1,5 +1,4 @@
 /**
- * This class represents a simple picture. You can draw the picture using
  * the draw method. But wait, there's more: being an electronic picture, it
  * can be changed. You can set it to black-and-white display and back to
  * colors (only after it's been drawn, of course).
@@ -17,6 +16,10 @@ public class Picture
     private Circle sun;
     private Square campo;
     private Person person;
+    private Circle c_small;
+    private Circle c_big;
+    private Square tronco;
+    private Square timer;
     
 
     /**
@@ -126,4 +129,82 @@ public class Picture
             person.slowMoveHorizontal(150);
         }
     }
+        
+    /**
+     * Change this picture to use color display
+     */
+    public void createFigure()
+    {
+        if (wall != null)   // only if it's painted already...
+        {
+            c_small = new Circle();
+            c_small.changeSize(40);
+            c_small.moveHorizontal(105);
+            c_small.moveVertical(60);
+            c_small.changeColor("green");
+            c_small.makeVisible();
+            
+            tronco = new Square();
+            tronco.changeSize(20);
+            tronco.moveVertical(118);
+            tronco.moveHorizontal(35);
+            tronco.changeColor("black");
+            tronco.makeVisible();
+            
+            c_big = new Circle();
+            c_big.changeSize(60);
+            c_big.moveHorizontal(95);
+            c_big.moveVertical(90);
+            c_big.changeColor("green");
+            c_big.makeVisible();
+            
+            timer = new Square();
+        }
+    
+}
+
+ /**
+     * Change this picture to use color display
+     */
+    public void moveFigure()
+    {
+        if (tronco != null)   // only if it's painted already...
+        {
+            c_small.slowMoveVertical(2);
+            c_small.slowMoveHorizontal(5);
+            c_big.slowMoveVertical(2);
+            c_small.slowMoveVertical(1);
+            c_small.slowMoveHorizontal(5);
+            c_big.slowMoveHorizontal(4);
+            c_small.slowMoveVertical(1);
+            c_small.slowMoveHorizontal(5);
+            c_big.slowMoveVertical(2);
+            c_small.slowMoveVertical(1);
+            c_small.slowMoveHorizontal(5);
+            c_big.slowMoveHorizontal(4);
+            //Timer para deshacer cambios
+            timer.changeSize(0);
+            timer.changeColor("black");
+            timer.makeVisible();
+            timer.slowMoveHorizontal(100);
+            timer.makeInvisible();
+            //Volver al principio
+            c_small.slowMoveVertical(-2);
+            c_small.slowMoveHorizontal(-5);
+            c_big.slowMoveVertical(-2);
+            c_small.slowMoveVertical(-1);
+            c_small.slowMoveHorizontal(-5);
+            c_big.slowMoveHorizontal(-4);
+            c_small.slowMoveVertical(-1);
+            c_small.slowMoveHorizontal(-5);
+            c_big.slowMoveVertical(-2);
+            c_small.slowMoveVertical(-1);
+            c_small.slowMoveHorizontal(-5);
+            c_big.slowMoveHorizontal(-4);
+            
+           
+            
+        }
+    
+}
 }
